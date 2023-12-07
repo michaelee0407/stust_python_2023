@@ -10,6 +10,10 @@ class Sports:
     def sports_name(self, value):
         self._name = value
 
+    def practice(self):
+        print("Doing Sports practice")
+
+
 class LandSports(Sports):
     def __init__(self, name, field):
         super().__init__(name)
@@ -18,6 +22,9 @@ class LandSports(Sports):
     @property
     def landsports_field(self):
         return self._field
+
+    def practice(self):
+        print("Doing Land Sports practice")
 
 
 class WaterSports(Sports):
@@ -29,6 +36,8 @@ class WaterSports(Sports):
     def watersports_activity(self):
         return self._activity
 
+    def practice(self):
+        print("Doing Water Sports practice")
 
 # Example of usage
 if __name__ == "__main__":
@@ -36,7 +45,13 @@ if __name__ == "__main__":
     baseball = LandSports("baseball", "baseball field")
     print(baseball.sports_name)
     print(baseball.landsports_field)
+    print(baseball.practice())
 
     water_skiing = WaterSports("Water Skiing", "Strap on your skis and fly across the water")
     print(water_skiing.sports_name)
     print(water_skiing.watersports_activity)
+    print(water_skiing.practice())
+
+    sports = Sports("Softball")
+    print(sports.sports_name)
+    print(sports.practice())
