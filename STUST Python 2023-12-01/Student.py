@@ -1,3 +1,5 @@
+
+
 class Student:
     # Constructor
     def __init__(self, name, age, student_id, gpa):
@@ -6,52 +8,36 @@ class Student:
         self.student_id = student_id
         self.gpa = gpa
 
-    # Getter methods
-    def get_name(self):
+
+    @property
+    def student_name(self):
+        print(f'"{self.name}" was accessed.')
         return self.name
 
-    def get_age(self):
-        return self.age
+    @student_name.setter
+    def student_name(self, value):
+        print(f'"{self.name}" is now "{value}".')
+        self.name = value
 
-    def get_student_id(self):
-        return self.student_id
-
-    def get_gpa(self):
-        return self.gpa
-
-    # Setter methods
-    def set_name(self, name):
-        self.name = name
-
-    def set_age(self, age):
-        self.age = age
-
-    def set_student_id(self, student_id):
-        self.student_id = student_id
-
-    def set_gpa(self, gpa):
-        self.gpa = gpa
-
-    # Display method
-    def display_student_info(self):
-        print("Name:", self.name)
-        print("Age:", self.age)
-        print("Student ID:", self.student_id)
-        print("GPA:", self.gpa)
+    @student_name.deleter
+    def student_name(self): 
+        print(f'"{self.name}" was deleted')
+        del self.name
 
 # Example of usage
 if __name__ == "__main__":
     # Creating a new student object
     student1 = Student("John Doe", 20, "S12345", 3.5)
 
-    # Displaying student information
-    print("Student Information:")
-    student1.display_student_info()
+    print(student1.student_name)
+    student1.student_name = "Peter Pan"
+    del student1.student_name
+    print(student1.student_name)
 
-    # Modifying student information
-    student1.set_age(21)
-    student1.set_gpa(3.8)
+    # Displaying student information
+    #print("Student Information:")
+    #student1.display_student_info()
 
     # Displaying updated information
-    print("\nUpdated Student Information:")
-    student1.display_student_info()
+    #print("\nUpdated Student Information:")
+    #student1.display_student_info()
